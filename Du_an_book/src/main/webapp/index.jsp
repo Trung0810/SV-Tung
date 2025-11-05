@@ -7,7 +7,6 @@
     pageEncoding="UTF-8"%><!DOCTYPE html>
     <%
     String sort = request.getParameter("sort");
-
     SanPhamDAO spDAO = new SanPhamDAO();
     ArrayList<SanPham> dsSP = spDAO.selectAll();
     String keyword = request.getParameter("keyword");
@@ -67,9 +66,6 @@
 <meta charset="UTF-8">
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
-
-
-
 </head>
 <% if ("true".equals(request.getParameter("added"))) { %>
 <div class="alert alert-success text-center" role="alert">
@@ -79,7 +75,6 @@
 
 <body>
 
-	<!-- Navbar -->
 <nav class="navbar navbar-expand-lg bg-light px-4">
 		 <div class="container-fluid">
 			   <nav class="navbar navbar-dark bg-dark">
@@ -111,8 +106,7 @@
 			      <a href="dangNhap.jsp" class="btn btn-primary">Đăng nhập</a>
 			      <%} else {%>
 			    	  </a>
-			      <a style = "while-space: nowrap;" href="dang_xuat" class="btn btn-primary">Đăng xuất</a>
-			      	
+			      <a style = "while-space: nowrap;" href="dang_xuat" class="btn btn-primary">Đăng xuất</a>			      	
 			      <%} %>
 			      
 			    </div>
@@ -123,7 +117,7 @@
 						<!-- Menu left -->
 						<div class="col-lg-3">
 			  <div class="list-group">
-			  <!-- Thanh tìm kiếm -->
+
 				<div class="mb-3">
 				  <form action="index.jsp" method="get" class="d-flex">
 				    <input type="text" name="keyword" class="form-control me-2" 
