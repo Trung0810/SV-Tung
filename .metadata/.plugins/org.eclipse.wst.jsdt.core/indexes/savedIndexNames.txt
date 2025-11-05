@@ -1,8 +1,0 @@
-INDEX VERSION 1.4+D:\Du_an_books\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-189524655.index
-1639795577.index
-4154322402.index
-4154274665.index
-1566879959.index
-1597263618.index
-2379899875.index

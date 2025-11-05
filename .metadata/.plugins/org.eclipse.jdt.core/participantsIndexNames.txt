@@ -1,3 +1,0 @@
-INDEX VERSION 1.134
-D:\Du_an_books\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2379899875.index
-\Du_an_book\src\main\java
