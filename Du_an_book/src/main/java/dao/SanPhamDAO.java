@@ -187,6 +187,7 @@ public class SanPhamDAO implements DAOInterface<SanPham> {
                 ds.add(sp);
             }
 
+            // Log kiểm tra
             System.out.println(">>> Lấy được " + ds.size() + " sản phẩm từ thể loại có maTL = " + maTL);
             for (SanPham sp : ds) {
                 System.out.println(" - " + sp.getTenSP() + " | Giá: " + sp.getGia());

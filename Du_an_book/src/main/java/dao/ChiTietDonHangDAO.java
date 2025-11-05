@@ -110,7 +110,7 @@ public class ChiTietDonHangDAO {
         }
         return count;
     }
-    
+
     public List<ChiTietDonHang> selectByDonHang(int maDH) {
         List<ChiTietDonHang> ds = new ArrayList<>();
         String sql = "SELECT * FROM chitietdonhang WHERE maDH = ?";

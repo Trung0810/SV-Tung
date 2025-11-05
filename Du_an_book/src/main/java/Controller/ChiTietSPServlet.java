@@ -34,6 +34,6 @@ public class ChiTietSPServlet extends HttpServlet {
             }
         } else {
             response.sendRedirect("index.jsp");
-    	}
+        }
     }
 }

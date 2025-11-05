@@ -66,7 +66,7 @@ public class KhachHangDAO implements DAOInterface<KhachHang> {
         }
         return kh;
     }
-
+    
     public KhachHang selectByUsernameAndPassword(String tenDangNhap, String matKhau) {
         KhachHang kh = null;
         String sql = "SELECT * FROM khachhang WHERE tenDangNhap = ? AND matKhau = ?";
@@ -91,7 +91,7 @@ public class KhachHangDAO implements DAOInterface<KhachHang> {
                         rs.getString("email"),
                         rs.getString("vaiTro")
                 );
-        	}
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -29,6 +29,7 @@
     int maDH = Integer.parseInt(request.getParameter("maDH"));
     Connection conn = JDBCUtil.getConnection();
 
+    // Lấy thông tin đơn hàng
     PreparedStatement ps = conn.prepareStatement("SELECT * FROM DonHang WHERE maDH = ?");
     ps.setInt(1, maDH);
     ResultSet rs = ps.executeQuery();
@@ -43,6 +44,7 @@
     rs.close();
     ps.close();
 
+    // Lấy chi tiết đơn hàng
     PreparedStatement psCT = conn.prepareStatement("SELECT * FROM ChiTietDonHang WHERE maDH = ?");
     psCT.setInt(1, maDH);
     ResultSet rsCT = psCT.executeQuery();
