@@ -27,7 +27,6 @@ public class DangKyServlet extends HttpServlet {
      */
     public DangKyServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**

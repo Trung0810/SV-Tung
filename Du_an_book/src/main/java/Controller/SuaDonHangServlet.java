@@ -36,13 +36,11 @@ public class SuaDonHangServlet extends HttpServlet {
         SanPhamDAO spDAO = new SanPhamDAO();
 
         try {
-            // 1️⃣ Xóa chi tiết cũ
             List<ChiTietDonHang> oldList = ctdhDAO.selectByDonHang(maDH);
             for (ChiTietDonHang ctdh : oldList) {
                 ctdhDAO.delete(ctdh.getMaCT());
             }
 
-            // 2️⃣ Thêm chi tiết mới và tính tổng tiền
             double tongTien = 0;
             for (int i = 0; i < maSPs.length; i++) {
                 int maSP = Integer.parseInt(maSPs[i]);
@@ -53,7 +51,6 @@ public class SuaDonHangServlet extends HttpServlet {
                 tongTien += donGia * soLuong;
             }
 
-            // 3️⃣ Cập nhật đơn hàng
             dhDAO.update(new DonHang(maDH, maKH, ngayLap, tongTien));
 
             response.sendRedirect("quanLyDonHang.jsp");

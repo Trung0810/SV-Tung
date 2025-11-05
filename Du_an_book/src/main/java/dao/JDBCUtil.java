@@ -14,19 +14,15 @@ public class JDBCUtil {
 		Connection c = null;
 		
 		try {
-			// Đăng ký MySQL Driver với DriverManager
 			DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
 			
-			// Các thông số
 			String url = "jdbc:mySQL://localhost:3306/bookstore1";
 			String username = "root";
 			String password = "Trung0810#";
 			
-			// Tạo kết nối
 			c = DriverManager.getConnection(url, username, password);
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

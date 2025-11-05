@@ -21,21 +21,18 @@ public class XoaDonHangServlet extends HttpServlet {
 
         try (Connection conn = JDBCUtil.getConnection()) {
 
-            // ✅ Xóa chi tiết đơn hàng trước (vì có ràng buộc khóa ngoại)
             String sqlCT = "DELETE FROM ChiTietDonHang WHERE maDH = ?";
             PreparedStatement psCT = conn.prepareStatement(sqlCT);
             psCT.setInt(1, maDH);
             psCT.executeUpdate();
             psCT.close();
 
-            // ✅ Xóa đơn hàng chính
             String sqlDH = "DELETE FROM DonHang WHERE maDH = ?";
             PreparedStatement psDH = conn.prepareStatement(sqlDH);
             psDH.setInt(1, maDH);
             psDH.executeUpdate();
             psDH.close();
 
-            // ✅ Sau khi xóa xong → quay lại trang quản lý
             response.sendRedirect("quanLyDonHang.jsp");
 
         } catch (Exception e) {

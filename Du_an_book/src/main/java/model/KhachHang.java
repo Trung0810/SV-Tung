@@ -46,8 +46,6 @@ public class KhachHang {
         this.email = email;
     }
 
-    // ===== Getter / Setter =====
-
     public int getMaKhachHang() {
         return maKhachHang;
     }

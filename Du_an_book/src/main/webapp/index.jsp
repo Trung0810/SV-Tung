@@ -6,13 +6,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%><!DOCTYPE html>
     <%
-    // Lấy tham số sắp xếp từ URL
     String sort = request.getParameter("sort");
 
-    // Lấy danh sách sản phẩm
     SanPhamDAO spDAO = new SanPhamDAO();
     ArrayList<SanPham> dsSP = spDAO.selectAll();
- // Tìm kiếm sản phẩm
     String keyword = request.getParameter("keyword");
     if (keyword != null && !keyword.trim().isEmpty()) {
         ArrayList<SanPham> ketQuaTimKiem = new ArrayList<>();
@@ -24,8 +21,6 @@
         dsSP = ketQuaTimKiem;
     }
 
-
-    // Nếu có chọn sắp xếp, thực hiện sắp xếp
     if (sort != null && !sort.isEmpty()) {
         switch (sort) {
             case "nameAsc":
@@ -59,7 +54,6 @@
         }
     }
 
-    // Gửi danh sách cho phần hiển thị bên dưới
     request.setAttribute("dsSP", dsSP);
 %>
     

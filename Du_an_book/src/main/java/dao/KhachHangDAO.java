@@ -26,7 +26,7 @@ public class KhachHangDAO implements DAOInterface<KhachHang> {
                         rs.getDate("ngaySinh"),
                         rs.getString("sdt"),
                         rs.getString("email"),
-                        rs.getString("vaiTro") // ✅ đọc vai trò
+                        rs.getString("vaiTro")
                 );
                 list.add(kh);
             }
@@ -67,7 +67,6 @@ public class KhachHangDAO implements DAOInterface<KhachHang> {
         return kh;
     }
 
-    // ✅ Đăng nhập (tìm theo tên đăng nhập và mật khẩu)
     public KhachHang selectByUsernameAndPassword(String tenDangNhap, String matKhau) {
         KhachHang kh = null;
         String sql = "SELECT * FROM khachhang WHERE tenDangNhap = ? AND matKhau = ?";
@@ -90,16 +89,15 @@ public class KhachHangDAO implements DAOInterface<KhachHang> {
                         rs.getDate("ngaySinh"),
                         rs.getString("sdt"),
                         rs.getString("email"),
-                        rs.getString("vaiTro") // ✅ Lấy vai trò
+                        rs.getString("vaiTro")
                 );
-            }
+        	}
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return kh;
     }
 
-    // ✅ Kiểm tra tên đăng nhập tồn tại
     public boolean kiemTraTenDangNhap(String tenDangNhap) {
         boolean tonTai = false;
         String sql = "SELECT 1 FROM khachhang WHERE tenDangNhap = ? LIMIT 1";
@@ -116,7 +114,6 @@ public class KhachHangDAO implements DAOInterface<KhachHang> {
         return tonTai;
     }
 
-    // ✅ Thêm khách hàng mới
     @Override
     public int insert(KhachHang t) {
         int rows = 0;
@@ -135,7 +132,7 @@ public class KhachHangDAO implements DAOInterface<KhachHang> {
             st.setDate(7, t.getNgaySinh());
             st.setString(8, t.getSoDienThoai());
             st.setString(9, t.getEmail());
-            st.setString(10, t.getVaiTro()); // ✅ thêm vai trò
+            st.setString(10, t.getVaiTro());
 
             rows = st.executeUpdate();
         } catch (SQLException e) {

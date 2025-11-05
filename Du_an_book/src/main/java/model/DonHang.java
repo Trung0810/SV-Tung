@@ -25,8 +25,6 @@ public class DonHang {
         this.tongTien = tongTien;
     }
 
-    // ===== Getter & Setter =====
-
     public int getMaDH() {
         return maDH;
     }
@@ -59,8 +57,6 @@ public class DonHang {
         this.tongTien = tongTien;
     }
 
-    // ===== equals & hashCode theo maDH =====
-
     @Override
     public int hashCode() {
         return Objects.hash(maDH);
@@ -73,8 +69,6 @@ public class DonHang {
         DonHang other = (DonHang) obj;
         return maDH == other.maDH;
     }
-
-    // ===== toString =====
 
     @Override
     public String toString() {

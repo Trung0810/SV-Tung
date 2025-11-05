@@ -7,7 +7,6 @@ import model.ChiTietDonHang;
 
 public class ChiTietDonHangDAO {
 
-    // 🟢 Thêm chi tiết đơn hàng
     public int insert(ChiTietDonHang t) {
         String sql = "INSERT INTO chitietdonhang(maCT, maDH, maSP, soLuong, donGia) VALUES (?, ?, ?, ?, ?)";
         try (Connection con = JDBCUtil.getConnection();
@@ -26,7 +25,6 @@ public class ChiTietDonHangDAO {
         }
     }
 
-    // 🟡 Cập nhật chi tiết đơn hàng
     public int update(ChiTietDonHang t) {
         String sql = "UPDATE chitietdonhang SET maDH=?, maSP=?, soLuong=?, donGia=? WHERE maCT=?";
         try (Connection con = JDBCUtil.getConnection();
@@ -45,7 +43,6 @@ public class ChiTietDonHangDAO {
         }
     }
 
-    // 🔴 Xóa chi tiết đơn hàng
     public int delete(int maCT) {
         String sql = "DELETE FROM chitietdonhang WHERE maCT=?";
         try (Connection con = JDBCUtil.getConnection();
@@ -60,7 +57,6 @@ public class ChiTietDonHangDAO {
         }
     }
 
-    // 🔵 Lấy tất cả chi tiết đơn hàng
     public List<ChiTietDonHang> selectAll() {
         List<ChiTietDonHang> ds = new ArrayList<>();
         String sql = "SELECT * FROM chitietdonhang";
@@ -83,7 +79,6 @@ public class ChiTietDonHangDAO {
         return ds;
     }
 
-    // 🟠 Tìm chi tiết đơn hàng theo mã
     public ChiTietDonHang selectById(int maCT) {
         String sql = "SELECT * FROM chitietdonhang WHERE maCT=?";
         try (Connection con = JDBCUtil.getConnection();
@@ -108,7 +103,6 @@ public class ChiTietDonHangDAO {
         return null;
     }
 
-    // 🧩 Thêm nhiều chi tiết đơn hàng cho 1 đơn hàng
     public int insertMany(List<ChiTietDonHang> list) {
         int count = 0;
         for (ChiTietDonHang ctdh : list) {
@@ -116,7 +110,7 @@ public class ChiTietDonHangDAO {
         }
         return count;
     }
- // 🔍 Lấy tất cả chi tiết theo mã đơn hàng
+    
     public List<ChiTietDonHang> selectByDonHang(int maDH) {
         List<ChiTietDonHang> ds = new ArrayList<>();
         String sql = "SELECT * FROM chitietdonhang WHERE maDH = ?";

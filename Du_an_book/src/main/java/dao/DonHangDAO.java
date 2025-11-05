@@ -7,7 +7,6 @@ import model.DonHang;
 
 public class DonHangDAO {
 
-    // ✅ Thêm đơn hàng — Dùng khi KHÔNG cần lấy lại ID (ít dùng)
     public int insert(DonHang t) {
         int ketQua = 0;
         String sql = "INSERT INTO donhang(maKH, ngayLap, tongTien) VALUES (?, ?, ?)";
@@ -25,7 +24,6 @@ public class DonHangDAO {
         return ketQua;
     }
 
-    // ✅ Thêm đơn hàng và TRẢ VỀ mã đơn hàng tự sinh (dùng trong ThanhToanController)
     public int insertAndReturnId(DonHang t) {
         int maDH = 0;
         String sql = "INSERT INTO donhang(maKH, ngayLap, tongTien) VALUES (?, ?, ?)";
@@ -41,7 +39,7 @@ public class DonHangDAO {
 
             try (ResultSet rs = st.getGeneratedKeys()) {
                 if (rs.next()) {
-                    maDH = rs.getInt(1); // Lấy mã đơn hàng vừa sinh tự động
+                    maDH = rs.getInt(1);
                 }
             }
         } catch (SQLException e) {
@@ -50,7 +48,6 @@ public class DonHangDAO {
         return maDH;
     }
 
-    // 🟡 Cập nhật đơn hàng
     public int update(DonHang t) {
         int ketQua = 0;
         String sql = "UPDATE donhang SET maKH=?, ngayLap=?, tongTien=? WHERE maDH=?";
@@ -70,7 +67,6 @@ public class DonHangDAO {
         return ketQua;
     }
 
-    // 🔴 Xóa đơn hàng
     public int delete(int maDH) {
         int ketQua = 0;
         String sql = "DELETE FROM donhang WHERE maDH=?";
@@ -86,7 +82,6 @@ public class DonHangDAO {
         return ketQua;
     }
 
-    // 🔍 Lấy danh sách tất cả đơn hàng
     public ArrayList<DonHang> selectAll() {
         ArrayList<DonHang> ds = new ArrayList<>();
         String sql = "SELECT * FROM donhang ORDER BY maDH DESC";
@@ -110,7 +105,6 @@ public class DonHangDAO {
         return ds;
     }
 
-    // 🔍 Tìm đơn hàng theo mã
     public DonHang selectById(int maDH) {
         DonHang dh = null;
         String sql = "SELECT * FROM donhang WHERE maDH=?";

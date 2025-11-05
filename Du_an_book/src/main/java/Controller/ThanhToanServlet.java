@@ -24,15 +24,13 @@ public class ThanhToanServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         List<GioHangItem> gioHang = (List<GioHangItem>) session.getAttribute("gioHang");
-        KhachHang kh = (KhachHang) session.getAttribute("kh"); // ✅ sửa: lưu đúng object khách hàng đã login
+        KhachHang kh = (KhachHang) session.getAttribute("kh");
         
-        // ✅ Kiểm tra đăng nhập
         if (kh == null) {
             response.sendRedirect("dangNhap.jsp?error=login_required");
             return;
         }
 
-        // ✅ Kiểm tra giỏ hàng
         if (gioHang == null || gioHang.isEmpty()) {
             response.sendRedirect("gioHang.jsp?error=empty");
             return;
@@ -43,16 +41,14 @@ public class ThanhToanServlet extends HttpServlet {
             tongTien += item.getThanhTien();
         }
 
-        // ✅ Tạo đơn hàng
         DonHangDAO dhDAO = new DonHangDAO();
         DonHang donHang = new DonHang();
         donHang.setMaKH(kh.getMaKhachHang());
         donHang.setNgayLap(Date.valueOf(LocalDate.now()));
         donHang.setTongTien(tongTien);
 
-        int maDH = dhDAO.insertAndReturnId(donHang); // 👉 bạn nên thêm hàm insertAndReturnId trong DonHangDAO
+        int maDH = dhDAO.insertAndReturnId(donHang);
 
-        // ✅ Lưu chi tiết đơn hàng
         ChiTietDonHangDAO ctDAO = new ChiTietDonHangDAO();
         for (GioHangItem item : gioHang) {
             ChiTietDonHang ct = new ChiTietDonHang();
@@ -63,10 +59,8 @@ public class ThanhToanServlet extends HttpServlet {
             ctDAO.insert(ct);
         }
 
-        // ✅ Xóa giỏ hàng sau khi thanh toán thành công
         session.removeAttribute("gioHang");
 
-        // ✅ Chuyển hướng kèm thông báo
         response.sendRedirect("gioHang.jsp?success=1");
     }
 }

@@ -23,7 +23,7 @@ public class DangNhapServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Nếu người dùng truy cập trực tiếp bằng GET thì điều hướng về trang đăng nhập
+
         RequestDispatcher rd = request.getRequestDispatcher("/dangNhap.jsp");
         rd.forward(request, response);
     }
@@ -32,11 +32,9 @@ public class DangNhapServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // Lấy dữ liệu từ form
         String tenDangNhap = request.getParameter("tenDangNhap");
         String matKhau = request.getParameter("matKhau");
 
-        // Gọi DAO kiểm tra đăng nhập
         KhachHangDAO khachHangDAO = new KhachHangDAO();
         KhachHang kh = khachHangDAO.selectByUsernameAndPassword(tenDangNhap, matKhau);
 
@@ -47,9 +45,9 @@ public class DangNhapServlet extends HttpServlet {
             session.setAttribute("kh", kh);
 
             if ("admin".equalsIgnoreCase(kh.getVaiTro())) {
-                url = "/admin.jsp"; // ✅ chuyển sang admin
+                url = "/admin.jsp";
             } else {
-                url = "/index.jsp"; // ✅ user thường
+                url = "/index.jsp";
             }
 
         } else {
@@ -57,7 +55,6 @@ public class DangNhapServlet extends HttpServlet {
             url = "/dangNhap.jsp";
         }
 
-        // Chuyển tiếp đến trang tương ứng
         RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
         rd.forward(request, response);
     }

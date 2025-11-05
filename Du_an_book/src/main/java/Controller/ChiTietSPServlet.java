@@ -27,13 +27,13 @@ public class ChiTietSPServlet extends HttpServlet {
                     request.setAttribute("sp", sp);
                     request.getRequestDispatcher("chitietsanpham.jsp").forward(request, response);
                 } else {
-                    response.sendRedirect("index.jsp"); // nếu không tìm thấy sản phẩm
+                    response.sendRedirect("index.jsp");
                 }
             } catch (NumberFormatException e) {
-                response.sendRedirect("index.jsp"); // nếu maSP không hợp lệ
+                response.sendRedirect("index.jsp");
             }
         } else {
-            response.sendRedirect("index.jsp"); // nếu không có tham số maSP
-        }
+            response.sendRedirect("index.jsp");
+    	}
     }
 }
