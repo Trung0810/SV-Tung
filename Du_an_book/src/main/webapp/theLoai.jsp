@@ -33,7 +33,6 @@
 
 <h3 class="text-center mb-4">📚 Danh sách sách theo thể loại</h3>
 
-<!-- phần danh sách sản phẩm của bạn ở dưới -->
 <div class="row">
     <% if (dsSP != null && !dsSP.isEmpty()) {
            for (SanPham sp : dsSP) { %>

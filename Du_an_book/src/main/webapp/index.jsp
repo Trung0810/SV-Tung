@@ -118,10 +118,6 @@
 			    </div>
 		  </div>
 </nav>
-
-	<!-- End Navbar -->
-	
-	<!-- Page content -->
 				<div class="container mt-4">
 					<div class="row">
 						<!-- Menu left -->
@@ -164,10 +160,7 @@
 			    
 			  </div>
 			</div>
-
-			<!-- End Menu left -->
-
-			<!-- Slider and Products -->
+			
 			<div class="col-lg-9">
 				<!-- Slider -->
 				<div id="carouselExampleIndicators" class="carousel slide mb-4"
@@ -203,8 +196,7 @@
 						<span class="visually-hidden">Next</span>
 					</button>
 				</div>
-				<!-- End Slider -->
-				<!-- Products -->
+
 				<div class="row">	
 						<div class="row">
 							 <% if (dsSP != null && !dsSP.isEmpty()) {
@@ -238,18 +230,16 @@
 						</div>
 			
 				</div>
-				<!-- End Products -->
+
 			</div>
-			<!-- End Slider and Products -->
+
 		</div>
 	</div>
-	<!-- End Page content -->
 
-	<!-- Footer -->
 	<footer class="py-3 my-4">
 		<ul class="nav justify-content-center border-bottom pb-3 mb-3">
 			<li class="nav-item"><a href="index.jsp"
-				class="nav-link px-2 text-muted">Trag chủ</a></li>
+				class="nav-link px-2 text-muted">Trang chủ</a></li>
 			<li class="nav-item"><a href="#"
 				class="nav-link px-2 text-muted">Quy định giao hàng</a></li>
 			<li class="nav-item"><a href="#"
@@ -261,11 +251,7 @@
 		</ul>
 		<p class="text-center text-muted">© 2022 4changhiepsimongmo.vn, Inc</p>
 	</footer>
-	<!-- End footer -->
-	
 
-
-	 
 	</div>
 </body>
 </html>
