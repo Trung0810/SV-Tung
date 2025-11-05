@@ -15,7 +15,6 @@ INDEX VERSION 1.134+D:\Du_an_books\.metadata\.plugins\org.eclipse.jdt.core
 3925490168.index
 688365908.index
 2229886263.index
-2376335602.index
 2907473905.index
 2668353349.index
 2715310064.index

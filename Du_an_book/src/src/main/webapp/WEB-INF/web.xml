@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         version="3.1">
+    <servlet>
+        <servlet-name>SanPhamServlet</servlet-name>
+        <servlet-class>controller.SanPhamServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SanPhamServlet</servlet-name>
+        <url-pattern>/SanPhamServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TheLoaiServlet</servlet-name>
+        <servlet-class>controller.TheLoaiServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TheLoaiServlet</servlet-name>
+        <url-pattern>/TheLoaiServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GioHangServlet</servlet-name>
+        <servlet-class>controller.GioHangServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GioHangServlet</servlet-name>
+        <url-pattern>/GioHangServlet</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>SanPhamServlet</welcome-file>
+    </welcome-file-list>
+    <welcome-file-list>
+    <welcome-file>index</welcome-file> <!-- tên trùng với @WebServlet("/index") -->
+</welcome-file-list>
+    
+</web-app>
